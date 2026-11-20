@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fa-AF" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#09131a" />
+    <meta name="description" content="ماشین‌حساب آفلاین تبدیل اسعار با نرخ دستی و محاسبهٔ کمیشن." />
+    <title>تبدیل‌یار | ماشین‌حساب اسعار</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="تبدیل‌یار، صفحهٔ اصلی">
+          <span class="brand-mark" aria-hidden="true"><span>↗</span><span>↙</span></span>
+          <span><strong>تبدیل‌یار</strong><small>محاسبه‌گر اسعار</small></span>
+        </a>
+        <div class="top-note"><span class="status-dot"></span> آفلاین و خصوصی</div>
+      </header>
+
+      <section class="intro" id="top">
+        <p class="eyebrow">برای تبدیل ساده و روشن</p>
+        <h1>نرخ را وارد کن،<br /><em>حساب را دقیق ببین.</em></h1>
+        <p class="intro-copy">مبلغ، نرخ روز و کمیشن را خودت تعیین کن. نتیجه همین‌جا روی دستگاهت محاسبه می‌شود.</p>
+      </section>
+
+      <section class="calculator" aria-labelledby="calc-title">
+        <div class="card-heading">
+          <div><span class="step-label">محاسبهٔ تازه</span><h2 id="calc-title">تبدیل اسعار</h2></div>
+          <button class="icon-button" id="reset-button" type="button" title="پاک‌کردن محاسبه" aria-label="پاک‌کردن محاسبه">↻</button>
+        </div>
+
+        <div class="amount-grid">
+          <label class="field currency-field">
+            <span>ارز فرستنده</span>
+            <select id="from-currency" aria-label="ارز فرستنده">
+              <option value="USD">دالر آمریکا · USD</option><option value="AFN">افغانی · AFN</option><option value="IRR">تومان ایران · IRR</option><option value="PKR">کلدار پاکستان · PKR</option><option value="EUR">یورو · EUR</option><option value="AED">درهم امارات · AED</option>
+            </select>
+          </label>
+          <div class="swap-column"><button class="swap-button" id="swap-button" type="button" aria-label="تبدیل جهت اسعار">⇄</button><span>از / به</span></div>
+          <label class="field currency-field">
+            <span>ارز گیرنده</span>
+            <select id="to-currency" aria-label="ارز گیرنده">
+              <option value="AFN">افغانی · AFN</option><option value="USD">دالر آمریکا · USD</option><option value="IRR">تومان ایران · IRR</option><option value="PKR">کلدار پاکستان · PKR</option><option value="EUR">یورو · EUR</option><option value="AED">درهم امارات · AED</option>
+            </select>
+          </label>
+          <label class="field amount-field">
+            <span>مبلغ فرستنده</span>
+            <div class="input-wrap"><input id="amount" type="number" min="0" step="any" inputmode="decimal" placeholder="مثلاً ۱۰۰۰" autocomplete="off" /><span id="from-code" class="unit">USD</span></div>
+          </label>
+        </div>
+
+        <div class="rate-row">
+          <label class="field rate-field"><span>نرخ تبدیل <b id="rate-label">USD به AFN</b></span><div class="input-wrap"><input id="rate" type="number" min="0" step="any" inputmode="decimal" placeholder="نرخ را وارد کن" autocomplete="off" /><span class="unit">×</span></div></label>
+          <label class="field commission-field"><span>کمیشن</span><div class="input-wrap"><input id="commission" type="number" min="0" max="100" step="any" inputmode="decimal" value="0" /><span class="unit">٪</span></div></label>
+        </div>
+        <p class="hint"><span aria-hidden="true">ⓘ</span> نرخ زنده از انترنت گرفته نمی‌شود؛ نرخ معتبر دفترت را خودت وارد کن.</p>
+
+        <div class="result-panel" aria-live="polite">
+          <div class="result-top"><span>مبلغ پس از کمیشن</span><button class="copy-button" id="copy-button" type="button">کاپی نتیجه</button></div>
+          <div class="result-value"><strong id="result">۰</strong><span id="to-code">AFN</span></div>
+          <div class="result-breakdown"><span>مبلغ پیش از کمیشن</span><strong id="gross-result">۰ AFN</strong><span>کمیشن</span><strong id="fee-result">۰ AFN</strong></div>
+        </div>
+
+        <div class="action-row"><button class="primary-button" id="calculate-button" type="button">محاسبه کن <span aria-hidden="true">←</span></button><p id="feedback" class="feedback" role="status"></p></div>
+      </section>
+
+      <footer class="footer"><span>ساخته‌شده برای محاسبهٔ دستی و آفلاین</span><span class="privacy"><span class="privacy-icon" aria-hidden="true">◈</span> اطلاعات معامله ذخیره یا ارسال نمی‌شود</span></footer>
+    </main>
+  </body>
+</html>
